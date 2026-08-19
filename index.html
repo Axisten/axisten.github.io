@@ -3,164 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- === ГЛАВНЫЙ МЕТА-ТЕГ ДЛЯ ЯНДЕКСА === -->
     <meta name="yandex-verification" content="3f258b5687c7f48f" />
-    <title>Игры от студии Axisten</title>
-    <!-- Favicon -->
-    <link rel="icon" href="IconForIndex.png" type="image/png">
-    <link rel="apple-touch-icon" href="IconForIndex.png">
+    <!-- ====================================== -->
+
+    <title>Games by Axisten Studio</title>
     <style>
+        /* Базовые стили для красивой страницы */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        html, body {
-            height: 100%;
-        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('GameBackGround.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
+            background: #0f172a; /* Темный фон как у космоса */
+            color: #ffffff;
             display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
             flex-direction: column;
-            min-height: 100vh;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: -1;
-        }
-        header {
-            text-align: center;
-            padding: 0;
-            background: transparent;
-            width: 100%;
-            line-height: 0;
-        }
-        header .header-logo {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 0;
-            filter: drop-shadow(0 4px 20px rgba(0,0,0,0.6));
-        }
-        .main-wrapper {
-            flex: 1;
-            padding: 30px 40px;
-            max-width: 1400px;
-            margin: 0;
-            width: 100%;
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            width: 100%;
-            max-width: 600px;
-            margin: 0;
-        }
-        .game-card {
-            background: rgba(80, 20, 30, 0.55);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
             padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(180, 60, 70, 0.2);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-            text-decoration: none;
-            display: block;
+        }
+        .container {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            margin-top: 15px;
+            line-height: 1.6;
+            color: #cbd5e1;
+            font-size: 1.1em;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 30px;
+            background: #f5576c;
             color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
         }
-        .game-card:hover {
-            transform: translateY(-8px);
-            background: rgba(100, 30, 40, 0.7);
-            box-shadow: 0 14px 48px rgba(0,0,0,0.6);
-            border-color: rgba(200, 80, 90, 0.3);
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(245, 87, 108, 0.6);
         }
-        .game-avatar-wrapper {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 16px;
-            background: rgba(0, 0, 0, 0.2);
-        }
-        .game-avatar {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-        .game-card:hover .game-avatar {
-            transform: scale(1.04);
-        }
-        .game-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 4px;
-            letter-spacing: -0.3px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-        }
-        .game-card .description {
+        .status-check {
+            margin-top: 20px;
             font-size: 0.9em;
-            opacity: 0.95;
-            padding: 0 4px;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+            color: #64748b;
         }
-        footer {
-            text-align: center;
-            padding: 12px 20px;
-            background: rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(2px);
-            margin-top: auto;
-            text-shadow: 0 1px 6px rgba(0,0,0,0.5);
-            font-size: 0.9em;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        @media (max-width: 768px) {
-            .main-wrapper {
-                padding: 20px 16px;
-                justify-content: center;
-            }
-            .games-grid {
-                max-width: 100%;
-                margin: 0 auto;
-            }
+        .status-check span {
+            color: #22c55e;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <header>
-        <!-- Логотип касается краев сайта -->
-        <img src="UpDownIcon.png" alt="Axisten Studio Logo" class="header-logo">
-    </header>
 
-    <main class="main-wrapper">
-        <div class="games-grid" id="gamesGrid">
-            <!-- Карточка игры "Змейка" — ссылка на указанный URL -->
-            <a href="https://axisten.github.io/AxelGames/" class="game-card" target="_blank">
-                <div class="game-avatar-wrapper">
-                    <img src="SnakyAvatar.png" alt="Змейка" class="game-avatar">
-                </div>
-                <h3>Змейка</h3>
-                <div class="description">ищите еду и становитесь длиннее</div>
-            </a>
+    <div class="container">
+        <h1>Games By Axisten Studio</h1>
+        <p>Добро пожаловать! Здесь скоро появятся мои игры.<br>
+        Сейчас сайт находится в стадии настройки.</p>
+        
+        <!-- Кнопка перехода на основную страницу с играми -->
+        <a href="https://axisten.github.io/GameByAxistenStudio/" class="btn">Перейти к моим играм →</a>
+        
+        <div class="status-check">
+            Статус: <span>Проверка Яндекс.Вебмастер активна</span>
         </div>
-    </main>
+    </div>
 
-    <footer>
-        <p>© 2026 Игры от студии Axisten</p>
-    </footer>
 </body>
 </html>
