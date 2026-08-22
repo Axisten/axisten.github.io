@@ -1,6 +1,11 @@
 User-agent: *
-Disallow: /
+Allow: /
 
 User-agent: Yandex
-Disallow: /
+Allow: /
 Host: axisten.github.io
+
+# Запрещаем индексацию файлов (на случай, если они все еще видны)
+Disallow: /*.jpg$
+Disallow: /*.png$
+Disallow: /*.ico$
